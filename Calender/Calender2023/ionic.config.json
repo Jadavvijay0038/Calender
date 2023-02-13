@@ -1,0 +1,7 @@
+{
+  "name": "Calender2023",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

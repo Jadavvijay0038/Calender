@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>
+     {{title}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides effect="fade" #mySlider (ionSlideDidChange)="onSlideChange()">
+    <ion-slide  *ngFor="let item of monthList" class="swiper-slide">
+      <div [style]="currentMonthData?.calendar_banner_style" class="slide1"></div>
+      {{item.calendar_banner_text}}</ion-slide>
+  </ion-slides>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2" size-md="4" size-lg="2" *ngFor="let item of currentMonthData?.days">
+        <ion-card  [style]="item.card_color">
+          <img [src]="item.card_image" class="card-img-top" alt="..." loading="lazy" width="100%" height="auto"
+          [style.opacity]="item.image_loaded ? 1 : 0" (load)="item.image_loaded = true">
+          <div class="placeholder-image" [style.backgroundImage]="'url(' + item.card_image + ')'"
+          [style.opacity]="item.image_loaded ? 0 : 1"></div>
+          <ion-card-header>
+            <ion-card-title>{{item.card_header}}</ion-card-title>
+            <ion-card-subtitle>{{item.date}} - {{item.day_of_the_week}}</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            {{item.card_body}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
