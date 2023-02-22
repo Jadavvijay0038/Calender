@@ -1,21 +1,16 @@
 .slide1 {
     margin-top: 50px;
     margin-bottom: 50px;
-    
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 150px;
+    min-height: 150px;
     background-position: center top;
     background-size: 100%;
 }
 
 .slide1 h1 {
     color: white;
-}
-
-.paginatin{
-    position: static;
 }
 
 mat-card {
