@@ -19,9 +19,6 @@ interface MonthList extends Array<Month> { }
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-url(arg0: any) {
-throw new Error('Method not implemented.');
-}
   bannerImageUrl: any;
   constructor(private apiService: ApiServiceService) { }
 
@@ -36,7 +33,7 @@ throw new Error('Method not implemented.');
       direction: 'horizontal',
       initialSlide: 0,
       slidesPerView: 1,
-      spaceBetween: 16,  
+      spaceBetween: 500,
       loop: false,
       pagination: {
         el: '.swiper-pagination',
@@ -52,7 +49,6 @@ throw new Error('Method not implemented.');
       },
       speed: 1000,
     });
-
 
     mySwiper.on('slideChange', () => {
       this.currentIndex = mySwiper.activeIndex;

@@ -1,68 +1,59 @@
-nav h1 {
-    text-align: center;
-    color: #ffffff;
-}
-
-.swiper-container {
-    margin: 20px;
-}
-
 .slide1 {
-    padding: auto;
-    text-align: center;
-    height: auto;
-    margin: 50px;
-}
-
-
-@media (max-width: 768px) {
-    .swiper-container {
-        margin-bottom: 0;
-    }
-}
-
-card-text {
-    text-justify: inter-word;
-}
-
-.row {
-    align-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
     display: flex;
-    flex-wrap: wrap;
-    margin: 10px;
-    /* width: 80%; */
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    background-position: center top;
+    background-size: 100%;
 }
 
-.col-md-2 {
-    flex-basis: calc(100% / 6);
-    max-width: calc(100% / 6);
-    padding: 10px;
+.slide1 h1 {
+    color: white;
 }
 
-.card {
+.paginatin{
+    position: static;
+}
+
+mat-card {
+    position: relative;
+}
+
+mat-card img {
+    display: block;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    margin-bottom: 10px;
-    /* add other styles here */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
 }
 
-@media screen and (max-width: 768px) {
-    .col-md-2 {
-        flex-basis: calc(100% / 3);
-        max-width: calc(100% / 3);
-    }
+.card-overlay mat-card-header,
+.card-overlay mat-card-content {
+    z-index: 1;
 }
 
-@media screen and (max-width: 576px) {
-    .col-md-2 {
-        flex-basis: 50%;
-        max-width: 50%;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .col-md-2 {
-        flex-basis: 100%;
-        max-width: 100%;
-    }
+.card-overlay .placeholder-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    z-index: 0;
+    transition: opacity 0.3s ease;
 }

@@ -1,27 +1,42 @@
 <nav class="navbar navbar-dark bg-dark">
-  <h1>{{title}}</h1>
+  <h1 style="color: aqua;">{{title}}</h1>
 </nav>
-<div class="swiper-container">
-  <div class="swiper-wrapper">
-    <div *ngFor="let item of monthList" class="swiper-slide">
-      <div [style]="currentMonthData?.calendar_banner_style" class="slide1">
-        <h1>{{item.calendar_banner_text}}</h1>
+<div class="container">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div *ngFor="let item of monthList" class="swiper-slide">
+        <div [style]="currentMonthData?.calendar_banner_style" class="slide1">
+          <h1>{{item.calendar_banner_text}}</h1>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-3" *ngFor="let item of currentMonthData?.days">
-    <div class="card" [style]="item.card_color">
-      <h5>{{item.date}}</h5>
-      <h5>{{item.card_header}}</h5>
-      <p class="card-text">{{item.card_body}}</p>
-      <p class="card-text">{{item.day_of_the_week}}</p>
-      <!-- <img src="{{item.card_image}}" class="card-img-top" alt="..."> -->
-      <img [src]="item.card_image" class="card-img-top" alt="..." loading="lazy" width="100%" height="auto"
-        [style.opacity]="item.image_loaded ? 1 : 0" (load)="item.image_loaded = true">
-      <div class="placeholder-image" [style.backgroundImage]="'url(' + item.card_image + ')'"
-        [style.opacity]="item.image_loaded ? 0 : 1"></div>
+    <div class="paginatin">
+      <!-- <div class="swiper-pagination"></div>
+
+      <!-- Add Navigation -->
+    <!--  <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div> -->
     </div>
   </div>
+  <mat-grid-list cols="6">
+    <mat-grid-tile *ngFor="let item of currentMonthData?.days">
+      <mat-card [style]="item.card_color">
+        <img mat-card-image [src]="item.card_image" alt="..." loading="lazy" width="100%" height="auto"
+          [style.opacity]="item.image_loaded ? 1 : 0" (load)="item.image_loaded = true">
+        <div class="placeholder-image" [style.backgroundImage]="'url(' + item.card_image + ')'"
+          [style.opacity]="item.image_loaded ? 0 : 1"></div>
+        <div class="card-overlay">
+          <mat-card-header>
+            <mat-card-title>{{item.date}}</mat-card-title>
+            <mat-card-subtitle>{{item.day_of_the_week}} - {{item.card_header}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{item.card_body}}
+            </p>
+          </mat-card-content>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

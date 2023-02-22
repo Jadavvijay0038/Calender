@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiServiceService } from './api-service.service';
 import {MatCardModule} from '@angular/material/card';
 
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import {MatCardModule} from '@angular/material/card';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule, MatGridListModule
   ],
   providers: [ApiServiceService],
   bootstrap: [AppComponent]
